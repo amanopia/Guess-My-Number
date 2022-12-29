@@ -8,6 +8,7 @@ let againBtn = document.querySelector('.again');
 let body = document.querySelector('body');
 let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
+let inputField = document.querySelector('.guess');
 
 // Initialising two state variables
 let highScore = 0;
@@ -21,7 +22,7 @@ function scoreReducer(){
 // guess defined outside the scope of the eventHandler function
 let guess;
 document.querySelector('.check').addEventListener('click', function(){
-    guess = Number(document.querySelector('.guess').value);
+    guess = Number(inputField.value);
     
     if(!guess){
         // since empty input field means, 0, and zero is a falsy value, so !false true
@@ -34,7 +35,7 @@ document.querySelector('.check').addEventListener('click', function(){
         // background-color: green
         // box-containing the number increases in width
         // new high score is set if score is greater than the previous high score
-        
+
         if(score > highScore){
             highScore = score;
             highScoreElement.textContent = highScore; 
@@ -51,7 +52,7 @@ document.querySelector('.check').addEventListener('click', function(){
         } else {
             message.textContent = "You lost the game!";
             scoreElement.textContent=0;
-            body.style.backgroundColor="#e61a0b"
+            body.style.backgroundColor="#e61a0b";
         }
     } else {
         if(score > 1){
@@ -77,6 +78,8 @@ againBtn.addEventListener('click',function(){
     // recalculating secret number
     secretNumber = Math.ceil(Math.random() * 20);
     console.log(secretNumber);
+    // resetting input field value
+    inputField.value="";
 })
 // _____________ Project notes _____________
 
