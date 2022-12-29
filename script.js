@@ -9,6 +9,7 @@ let inputField = document.querySelector('.guess');
 
 // implementing random number functionality
 let secretNumber = Math.ceil(Math.random() * 20);
+console.log(secretNumber);
 
 // Initialising two state variables
 let highScore = 0;
@@ -19,11 +20,18 @@ function scoreReducer(){
     scoreElement.textContent = score;
 }
 
+function playSound (path){
+    let audio = new Audio(path);
+    audio.play();
+}
 // guess defined outside the scope of the eventHandler function
 let guess;
 document.querySelector('.check').addEventListener('click', function(){
     guess = Number(inputField.value);
     
+    // playing audio on click
+    playSound("./sound/click.wav");
+
     if(!guess){
         // since empty input field means, 0, and zero is a falsy value, so !false true
         message.textContent = "Enter a number";
@@ -44,6 +52,7 @@ document.querySelector('.check').addEventListener('click', function(){
         body.style.backgroundColor = "#60b347";
         number.style.width = "30rem";
         number.textContent = secretNumber;
+        playSound("./sound/win.wav");
 
     } else if(guess > secretNumber) {
         if(score > 1){
@@ -53,6 +62,8 @@ document.querySelector('.check').addEventListener('click', function(){
             message.textContent = "You lost the game!";
             scoreElement.textContent=0;
             body.style.backgroundColor="#e61a0b";
+            playSound("./sound/lose.wav");
+
         }
     } else {
         if(score > 1){
@@ -62,13 +73,14 @@ document.querySelector('.check').addEventListener('click', function(){
             message.textContent = "You lost the game!";
             scoreElement.textContent = 0;
             body.style.backgroundColor="#e61a0b";
+            playSound("./sound/lose.wav");
         }
     }
 })
 
 againBtn.addEventListener('click',function(){
     score = 20;
-    scoreElement.textContent = 20;
+    scoreElement.textContent = score;
     // styles
     body.style.backgroundColor="#222";
     number.style.width="15rem";
