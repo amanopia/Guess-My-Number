@@ -5,6 +5,7 @@ console.log(secretNumber);
 let scoreElement = document.querySelector('.score');
 let score = 20;
 let message = document.querySelector('.message');
+let againBtn = document.querySelector('.again');
 let body = document.querySelector('body');
 let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
@@ -54,6 +55,18 @@ document.querySelector('.check').addEventListener('click', function(){
     }
 })
 
-
+againBtn.addEventListener('click',function(){
+    score = 20;
+    scoreElement.textContent = 20;
+    // styles
+    body.style.backgroundColor="#222";
+    number.style.width="15rem";
+    // textContent
+    number.textContent="?";
+    message.textContent = "Start guessing..."
+    // recalculating secret number
+    secretNumber = Math.ceil(Math.random() * 20);
+    console.log(secretNumber);
+})
 // _____________ Project notes
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
