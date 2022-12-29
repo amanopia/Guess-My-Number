@@ -1,7 +1,4 @@
-// implementing random number functionality
-let secretNumber = Math.ceil(Math.random() * 20);
-console.log(secretNumber);
-
+// assigning element objects to variables
 let scoreElement = document.querySelector('.score');
 let message = document.querySelector('.message');
 let againBtn = document.querySelector('.again');
@@ -9,6 +6,9 @@ let body = document.querySelector('body');
 let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
 let inputField = document.querySelector('.guess');
+
+// implementing random number functionality
+let secretNumber = Math.ceil(Math.random() * 20);
 
 // Initialising two state variables
 let highScore = 0;
@@ -81,6 +81,7 @@ againBtn.addEventListener('click',function(){
     // resetting input field value
     inputField.value="";
 })
+
 // _____________ Project notes _____________
 
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
