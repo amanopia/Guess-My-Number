@@ -3,12 +3,15 @@ let secretNumber = Math.ceil(Math.random() * 20);
 console.log(secretNumber);
 
 let scoreElement = document.querySelector('.score');
-let score = 20;
 let message = document.querySelector('.message');
 let againBtn = document.querySelector('.again');
 let body = document.querySelector('body');
 let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
+
+// Initialising two state variables
+let highScore = 0;
+let score = 20;
 
 function scoreReducer(){
     score--;
@@ -26,14 +29,21 @@ document.querySelector('.check').addEventListener('click', function(){
     } else if(guess === secretNumber) {
         
         message.textContent = "Correct Number!!!";
-
+        
         // when player wins
         // background-color: green
         // box-containing the number increases in width
+        // new high score is set if score is greater than the previous high score
+        
+        if(score > highScore){
+            highScore = score;
+            highScoreElement.textContent = highScore; 
+        }
 
         body.style.backgroundColor = "#60b347";
         number.style.width = "30rem";
         number.textContent = secretNumber;
+
     } else if(guess > secretNumber) {
         if(score > 1){
             message.textContent = "Number too high!";
@@ -68,5 +78,6 @@ againBtn.addEventListener('click',function(){
     secretNumber = Math.ceil(Math.random() * 20);
     console.log(secretNumber);
 })
-// _____________ Project notes
+// _____________ Project notes _____________
+
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
