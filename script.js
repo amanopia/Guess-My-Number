@@ -32,6 +32,7 @@ document.querySelector('.check').addEventListener('click', function(){
 
         body.style.backgroundColor = "#60b347";
         number.style.width = "30rem";
+        number.textContent = secretNumber;
     } else if(guess > secretNumber) {
         if(score > 1){
             message.textContent = "Number too high!";
@@ -52,6 +53,7 @@ document.querySelector('.check').addEventListener('click', function(){
         }
     }
 })
+
 
 // _____________ Project notes
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
