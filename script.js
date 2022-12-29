@@ -6,6 +6,7 @@ let body = document.querySelector('body');
 let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
 let inputField = document.querySelector('.guess');
+let heading = document.querySelector('h1');
 
 // implementing random number functionality
 let secretNumber = Math.ceil(Math.random() * 20);
@@ -15,15 +16,28 @@ console.log(secretNumber);
 let highScore = 0;
 let score = 20;
 
+// Reducing Scores
 function scoreReducer(){
     score--;
     scoreElement.textContent = score;
 }
 
+// Playing audio function
 function playSound (path){
     let audio = new Audio(path);
     audio.play();
 }
+
+// Game lost function
+function gameLost() {
+    message.textContent = "You lost the game!";
+    scoreElement.textContent = 0;
+    body.style.backgroundColor="#e61a0b";
+    heading.textContent = "The Number Was...";
+    number.textContent = secretNumber;
+    playSound("./sound/lose.wav");
+}
+
 // guess defined outside the scope of the eventHandler function
 let guess;
 document.querySelector('.check').addEventListener('click', function(){
@@ -59,21 +73,14 @@ document.querySelector('.check').addEventListener('click', function(){
             message.textContent = "Number too high!";
             scoreReducer();
         } else {
-            message.textContent = "You lost the game!";
-            scoreElement.textContent=0;
-            body.style.backgroundColor="#e61a0b";
-            playSound("./sound/lose.wav");
-
+            gameLost();
         }
     } else {
         if(score > 1){
             message.textContent = "Number too low";
             scoreReducer();
         } else {
-            message.textContent = "You lost the game!";
-            scoreElement.textContent = 0;
-            body.style.backgroundColor="#e61a0b";
-            playSound("./sound/lose.wav");
+            gameLost();
         }
     }
 })
