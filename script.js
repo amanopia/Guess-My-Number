@@ -3,8 +3,10 @@ let secretNumber = Math.ceil(Math.random() * 20);
 console.log(secretNumber);
 
 let scoreElement = document.querySelector('.score');
-let message = document.querySelector('.message');
 let score = 20;
+let message = document.querySelector('.message');
+let body = document.querySelector('body');
+let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
 
 function scoreReducer(){
@@ -21,7 +23,15 @@ document.querySelector('.check').addEventListener('click', function(){
         // since empty input field means, 0, and zero is a falsy value, so !false true
         message.textContent = "Enter a number";
     } else if(guess === secretNumber) {
+        
         message.textContent = "Correct Number!!!";
+
+        // when player wins
+        // background-color: green
+        // box-containing the number increases in width
+
+        body.style.backgroundColor = "#60b347";
+        number.style.width = "30rem";
     } else if(guess > secretNumber) {
         if(score > 1){
             message.textContent = "Number too high!";
@@ -29,6 +39,7 @@ document.querySelector('.check').addEventListener('click', function(){
         } else {
             message.textContent = "You lost the game!";
             scoreElement.textContent=0;
+            body.style.backgroundColor="#e61a0b"
         }
     } else {
         if(score > 1){
@@ -36,7 +47,8 @@ document.querySelector('.check').addEventListener('click', function(){
             scoreReducer();
         } else {
             message.textContent = "You lost the game!";
-            scoreElement.textContent = 0
+            scoreElement.textContent = 0;
+            body.style.backgroundColor="#e61a0b";
         }
     }
 })
