@@ -23,20 +23,23 @@ document.querySelector('.check').addEventListener('click', function(){
     } else if(guess === secretNumber) {
         message.textContent = "Correct Number!!!";
     } else if(guess > secretNumber) {
-        if(score > 0){
+        if(score > 1){
             message.textContent = "Number too high!";
             scoreReducer();
         } else {
             message.textContent = "You lost the game!";
+            scoreElement.textContent=0;
         }
-        // since score is declared globally, we can use the function, since it is reducing the score on a global level
     } else {
-        if(score > 0){
+        if(score > 1){
             message.textContent = "Number too low";
             scoreReducer();
         } else {
             message.textContent = "You lost the game!";
+            scoreElement.textContent = 0
         }
     }
-    console.log(guess, typeof guess);
 })
+
+// _____________ Project notes
+// since score is declared globally, we can use the function, since it is reducing the score on a global level
