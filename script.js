@@ -7,6 +7,7 @@ let number = document.querySelector('.number');
 let highScoreElement = document.querySelector('.highscore');
 let inputField = document.querySelector('.guess');
 let heading = document.querySelector('h1');
+let checkBtn = document.querySelector('.check');
 
 // implementing random number functionality
 let secretNumber = Math.ceil(Math.random() * 20);
@@ -40,7 +41,7 @@ function gameLost() {
 
 // guess defined outside the scope of the eventHandler function
 let guess;
-document.querySelector('.check').addEventListener('click', function(){
+checkBtn.addEventListener('click', function(){
     guess = Number(inputField.value);
     
     // playing audio on click
@@ -53,6 +54,7 @@ document.querySelector('.check').addEventListener('click', function(){
         
         message.textContent = "Correct Number!!";
         heading.textContent = 'Yay!! Correct Guess...'
+        checkBtn.disabled = true;
         // when player wins
         // background-color: green
         // box-containing the number increases in width
@@ -101,6 +103,7 @@ againBtn.addEventListener('click',function(){
     console.log(secretNumber);
     // resetting input field value
     inputField.value="";
+    checkBtn.disabled = false;
 })
 
 // _____________ Project notes _____________
