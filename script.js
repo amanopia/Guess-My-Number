@@ -51,8 +51,8 @@ document.querySelector('.check').addEventListener('click', function(){
         message.textContent = "Enter a number";
     } else if(guess === secretNumber) {
         
-        message.textContent = "Correct Number!!!";
-        
+        message.textContent = "Correct Number!!";
+        heading.textContent = 'Yay!! Correct Guess...'
         // when player wins
         // background-color: green
         // box-containing the number increases in width
