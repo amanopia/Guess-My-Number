@@ -15,7 +15,7 @@ console.log(secretNumber);
 
 // Initialising two state variables
 let highScore = 0;
-let score = 20;
+let score = 10;
 
 // Reducing Scores
 function scoreReducer(){
@@ -89,7 +89,7 @@ checkBtn.addEventListener('click', function(){
 
 againBtn.addEventListener('click',function(){
     playSound('./sound/again.wav');
-    score = 20;
+    score = 10;
     scoreElement.textContent = score;
     // styles
     body.style.backgroundColor="#222";
