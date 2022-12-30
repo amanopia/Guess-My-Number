@@ -86,6 +86,7 @@ document.querySelector('.check').addEventListener('click', function(){
 })
 
 againBtn.addEventListener('click',function(){
+    playSound('./sound/again.wav');
     score = 20;
     scoreElement.textContent = score;
     // styles
@@ -93,7 +94,8 @@ againBtn.addEventListener('click',function(){
     number.style.width="15rem";
     // textContent
     number.textContent="?";
-    message.textContent = "Start guessing..."
+    message.textContent = "Start guessing...";
+    heading.textContent = "Guess My Number!";
     // recalculating secret number
     secretNumber = Math.ceil(Math.random() * 20);
     console.log(secretNumber);
