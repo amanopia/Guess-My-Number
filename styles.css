@@ -259,6 +259,7 @@ a > img {
   right: 2rem;
   animation: blink 1s infinite;
   border: 0;
+  font-size: 1.5rem;
 }
 
 .profile:hover {

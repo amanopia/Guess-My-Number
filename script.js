@@ -118,7 +118,7 @@ function removeHidden(){
     overlay.classList.toggle('hidden');
 }
 
-setTimeout(removeHidden, 1500);
+setTimeout(removeHidden, 1200);
 
 closeBtn.addEventListener('click', function(){
     modalParent.classList.toggle('hidden');
