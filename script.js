@@ -9,6 +9,8 @@ let inputField = document.querySelector('.guess');
 let heading = document.querySelector('h1');
 let checkBtn = document.querySelector('.check');
 
+let modalParent = document.querySelector('.modal-parent');
+let overlay = document.querySelector('.overlay');
 // implementing random number functionality
 let secretNumber = Math.ceil(Math.random() * 20);
 console.log(secretNumber);
@@ -106,6 +108,13 @@ againBtn.addEventListener('click',function(){
     checkBtn.disabled = false;
 })
 
+// Function to show modal after a second of loading page
+function removeHidden(){
+    modalParent.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+}
+
+setTimeout(removeHidden, 1500);
 // _____________ Project notes _____________
 
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
