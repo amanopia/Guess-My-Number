@@ -213,6 +213,7 @@ a > img {
 .close {
   background: #fff;
   border-radius: 50%;
+  border: 0;
   height: 4rem;
   width: 4rem;
   padding: 1rem;
@@ -247,3 +248,36 @@ a > img {
   }
 }
 
+.profile {
+  position: absolute;
+  font-family: "Poppins";
+  background-color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  bottom: 2rem;
+  right: 2rem;
+  animation: blink 1s infinite;
+  border: 0;
+}
+
+.profile:hover {
+  cursor: pointer;
+}
+
+@keyframes blink{
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  } 
+  50% {
+    opacity: 0.2;
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+
+}

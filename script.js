@@ -11,6 +11,8 @@ let checkBtn = document.querySelector('.check');
 
 let modalParent = document.querySelector('.modal-parent');
 let overlay = document.querySelector('.overlay');
+let closeBtn = document.querySelector('.close');
+let profileBtn = document.querySelector('.profile');
 // implementing random number functionality
 let secretNumber = Math.ceil(Math.random() * 20);
 console.log(secretNumber);
@@ -117,6 +119,19 @@ function removeHidden(){
 }
 
 setTimeout(removeHidden, 1500);
+
+closeBtn.addEventListener('click', function(){
+    modalParent.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+    profileBtn.classList.toggle('hidden');
+})
+
+profileBtn.addEventListener('click', function(){
+    modalParent.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+    profileBtn.classList.add('hidden');
+})
+
 // _____________ Project notes _____________
 
 // since score is declared globally, we can use the function, since it is reducing the score on a global level
