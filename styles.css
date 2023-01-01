@@ -209,3 +209,21 @@ a > img {
   z-index: 5;
 }
 
+.close {
+  background: #fff;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+  padding: 1rem;
+  color: #000;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: -5rem;
+  transition: all 400ms ease;
+}
+
+.close:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
