@@ -147,6 +147,7 @@ h3 {
   color: #000; 
   border-radius: 1.5rem;
 }
+
 .modal > img {
   height: 12.2rem;
   width: 12.2rem;
@@ -232,3 +233,17 @@ a > img {
 .hidden {
   display: none;
 }
+
+.fadein {
+  opacity: 1;
+  animation: fadein 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1
+  }
+}
+

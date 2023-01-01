@@ -110,7 +110,9 @@ againBtn.addEventListener('click',function(){
 
 // Function to show modal after a second of loading page
 function removeHidden(){
+    modalParent.classList.toggle('fadein');
     modalParent.classList.toggle('hidden');
+    overlay.classList.toggle('fadein');
     overlay.classList.toggle('hidden');
 }
 
